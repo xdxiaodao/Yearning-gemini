@@ -30,7 +30,7 @@
                         </Select>
                     </FormItem>
                     <FormItem label="工单说明:" prop="text">
-                        <Input v-model="formItem.text" placeholder="请输入" type="textarea" :rows=4 maxlength="100"
+                        <Input v-model="formItem.text" placeholder="请输入" type="textarea" :rows=4 maxlength="1000"
                                show-word-limit></Input>
                     </FormItem>
                     <FormItem label="审核人:" prop="assigned" required>

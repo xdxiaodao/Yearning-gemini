@@ -86,7 +86,7 @@ a:visited {
                                     v-model="formInline.password"
                                 />
                             </div>
-                            <div class="input-group form-group-no-border input-lg">
+                            <div class="input-group form-group-no-border input-lg" style="display: none">
                                 <span class="input-group-addon">
                                     <Icon type="md-key" />
                                 </span>
@@ -103,7 +103,7 @@ a:visited {
                                 ></SIdentify>
                             </div>
                             <div class="footer text-center">
-                                <Checkbox v-model="single"> {{ $t('ldap') }}</Checkbox>
+                                <Checkbox v-model="single" > {{ $t('ldap') }}</Checkbox>
                                 <a
                                     class="btn btn-primary btn-round btn-lg btn-block"
                                     @click="signIn()"
@@ -226,7 +226,7 @@ export default class login extends Mixins(att_mixins) {
         }
     };
     replace = false;
-    single = false;
+    single = true;
     switchCode = false;
     sponsorship = false;
     register = false;
@@ -330,13 +330,13 @@ export default class login extends Mixins(att_mixins) {
     }
 
     signIn() {
-        if (this.check_code !== this.formInline.code.toLowerCase()) {
+        /**if (this.check_code !== this.formInline.code.toLowerCase()) {
             this.$Message.warning({
                 content: i18n.t('sign_up_validate.pin') as string,
             });
             this.replace = !this.replace;
             return;
-        }
+        }**/
         let url = this.$config.auth;
         if (this.single) {
             url = `${this.$config.gen}/ldap`;
